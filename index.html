@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فِرناز - علامة تجارية للعبايات الفاخرة</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+:root {
+    --primary-bg: #f5f5dc; /* بيج */
+    --text-color: #000000; /* أسود */
+    --accent-color: #d4af37; /* ذهبي */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 50%;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.section-title:hover::after {
+    width: 100%;
+}
+
+.price {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: rgba(245, 245, 220, 0.9);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(245, 245, 220, 0.98);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+    z-index: 2;
+    text-align: right;
+}
+
+.hero-content h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(245, 245, 220, 0.1), rgba(245, 245, 220, 0.7));
+}
+
+/* Products Section */
+.products {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.product-card.animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.view-details {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.view-details:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 5px;
+    padding: 0 15px;
+}
+
+.product-card p {
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.product-card .price {
+    display: block;
+    padding: 0 15px 15px;
+}
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background-color: var(--primary-bg);
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.about-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.signature {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--text-color);
+    color: var(--primary-bg);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-logo h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.footer-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.footer-info p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(245, 245, 220, 0.2);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--primary-bg);
+    margin: 50px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    animation: modalFadeIn 0.5s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-image {
+    height: 400px;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 30px;
+}
+
+.modal-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.modal-info p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.modal-info .price {
+    font-size: 1.8rem;
+    display: block;
+    margin: 20px 0;
+}
+
+.color-options {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.color-option.active {
+    border-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.color-option.black {
+    background-color: #000;
+}
+
+.color-option.beige {
+    background-color: #f5f5dc;
+}
+
+.color-option.brown {
+    background-color: #8B4513;
+}
+
+.add-to-cart {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animate__fadeIn {
+    animation-name: fadeIn;
+}
+
+.animate__fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about .container {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+    
+    .modal-body {
+        flex-direction: column;
+    }
+    
+    .modal-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background-color: var(--primary-bg);
+        transition: var(--transition);
+        z-index: 999;
+    }
+    
+    .nav.active {
+        right: 0;
+    }
+    
+    .nav ul {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .nav ul li {
+        margin: 15px 0;
+    }
+    
+    .hero-content {
+        right: 5%;
+    }
+    
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content {
+        text-align: center;
+        right: 0;
+        left: 0;
+        padding: 0 20px;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .modal-content {
+        margin: 20px auto;
+        width: 95%;
+    }
+    
+    .modal-info h2 {
+        font-size: 2rem;
+    }
+}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo animate__animated animate__fadeInDown">فِرناز</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                    <li><a href="#products" class="nav-link">المنتجات</a></li>
+                    <li><a href="#about" class="nav-link">من نحن</a></li>
+                    <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="animate__animated animate__fadeIn">عبايات فِرناز</h2>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">أناقة تلمس الروح</p>
+                <a href="#products" class="btn animate__animated animate__fadeIn animate__delay-2s">اكتشف المجموعة</a>
+            </div>
+            <div class="hero-slider">
+                <div class="slider-container">
+                    <div class="slide active" style="background-image: url('https://kayanee.com/cdn/shop/files/OTW27-WORKDAY-COTTON-STRETCH-PIQUE-ABAYA-CORE-BLUE_1_bac30354-b609-4831-9731-cf258f43c27d.webp?v=1739924745&width=713');"></div>
+                    <div class="slide" style="background-image: url('https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/4fcceed0-0b3a-4acc-9587-505d94a91fcc.jpg');"></div>
+                    <div class="slide" style="background-image: url('https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/c72df40c-3fda-48b1-827a-cb5d07af96ed.jpg');"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <h2 class="section-title">مجموعتنا</h2>
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card animate__animated">
+                        <div class="product-image">
+                            <img src="https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/c72df40c-3fda-48b1-827a-cb5d07af96ed.jpg" alt="عباية فِرناز 1">
+                            <div class="product-overlay">
+                                <button class="view-details" data-product="1">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                        <h3>ليلى</h3>
+                        <p>عباية كلاسيكية بتفاصيل ذهبية</p>
+                        <span class="price">499 ر.س</span>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card animate__animated">
+                        <div class="product-image">
+                            <img src="https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/4fcceed0-0b3a-4acc-9587-505d94a91fcc.jpg" alt="عباية فِرناز 2">
+                            <div class="product-overlay">
+                                <button class="view-details" data-product="2">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                        <h3>نور</h3>
+                        <p>عباية مطرزة بتصميم عصري</p>
+                        <span class="price">599 ر.س</span>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card animate__animated">
+                        <div class="product-image">
+                            <img src="https://kayanee.com/cdn/shop/files/OTW27-WORKDAY-COTTON-STRETCH-PIQUE-ABAYA-CORE-BLUE_1_bac30354-b609-4831-9731-cf258f43c27d.webp?v=1739924745&width=713" alt="عباية فِرناز 3">
+                            <div class="product-overlay">
+                                <button class="view-details" data-product="3">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                        <h3>يارا</h3>
+                        <p>عباية خفيفة بتصميم أنيق</p>
+                        <span class="price">449 ر.س</span>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card animate__animated">
+                        <div class="product-image">
+                            <img src="https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/c72df40c-3fda-48b1-827a-cb5d07af96ed.jpg" alt="عباية فِرناز 4">
+                            <div class="product-overlay">
+                                <button class="view-details" data-product="4">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                        <h3>ملك</h3>
+                        <p>عباية سوداء بتفاصيل ذهبية فاخرة</p>
+                        <span class="price">699 ر.س</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">من نحن</h2>
+                    <p>فِرناز هي علامة تجارية سعودية متخصصة في تصميم وتصنيع العبايات الفاخرة التي تجمع بين الأصالة والحداثة. تأسست العلامة عام 2020 بمجموعة صغيرة من المصممات الموهوبات اللواتي أردن إعادة تعريف الأناقة الإسلامية.</p>
+                    <p>نحن نؤمن بأن العباية ليست مجرد قطعة ملابس، بل هي تعبير عن الهوية والشخصية. لذلك نحرص على اختيار أفضل الخامات ونبتكر تصاميم تناسب المرأة العصرية التي تقدر الجمال والراحة.</p>
+                    <div class="signature">
+                        <p>فريق فِرناز</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/4fcceed0-0b3a-4acc-9587-505d94a91fcc.jpg" alt="فريق فِرناز">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">تواصل معنا</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="رسالتك" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">إرسال</button>
+                </form>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-snapchat"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>فِرناز</h3>
+                    <p>أناقة تلمس الروح</p>
+                </div>
+                <div class="footer-info">
+                    <h4>مشروع تخرج</h4>
+                    <p>براند عبايات "فِرناز"</p>
+                    <p>إعداد الطالبات: مريم خوقير، لمى المحمودي، فرح الحجاجي، أسيل المحمادي، ضياء العتيبي، فيّ الوصابي</p>
+                    <p>إشراف المعلمة: تهاني باحكيم</p>
+                    <p>العام الدراسي: 1446هـ - 2025م</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 فِرناز. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="عباية فِرناز">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title">ليلى</h2>
+                    <p id="modal-description">عباية كلاسيكية بتفاصيل ذهبية</p>
+                    <p id="modal-details">عباية "ليلى" مصنوعة من خامة الشيفون الفاخر مع تطريز ذهبي يدوي. تتميز بتصميمها الكلاسيكي الذي يناسب جميع المناسبات. تتوفر باللون الأسود والبني والبيج.</p>
+                    <span id="modal-price" class="price">499 ر.س</span>
+                    <div class="color-options">
+                        <span class="color-option black active" data-color="black"></span>
+                        <span class="color-option beige" data-color="beige"></span>
+                        <span class="color-option brown" data-color="brown"></span>
+                    </div>
+                    <button class="btn add-to-cart">إضافة إلى السلة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script >
+        document.addEventListener('DOMContentLoaded', function() {
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            nav.classList.remove('active');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Hero slider
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+    
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // Initialize first slide
+    showSlide(0);
+
+    // Product modal
+    const modal = document.getElementById('product-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalDetails = document.getElementById('modal-details');
+    const modalPrice = document.getElementById('modal-price');
+    const closeModal = document.querySelector('.close-modal');
+    const viewDetailsBtns = document.querySelectorAll('.view-details');
+    
+    // Product data
+    const products = {
+        1: {
+            title: 'ليلى',
+            description: 'عباية كلاسيكية بتفاصيل ذهبية',
+            details: 'عباية "ليلى" مصنوعة من خامة الشيفون الفاخر مع تطريز ذهبي يدوي. تتميز بتصميمها الكلاسيكي الذي يناسب جميع المناسبات. تتوفر باللون الأسود والبني والبيج.',
+            price: '499 ر.س',
+            images: {
+                black: 'https://images.unsplash.com/photo-1595341595379-cf1cd0fb7fb3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                beige: 'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+                brown: 'https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
+            }
+        },
+        2: {
+            title: 'نور',
+            description: 'عباية مطرزة بتصميم عصري',
+            details: 'عباية "نور" بتصميم عصري ومطرزة بتفاصيل ذهبية وفضية. مصنوعة من خامة حريرية ناعمة مع زخارف هندسية أنيقة. متوفرة باللون الأسود والرمادي والذهبي.',
+            price: '599 ر.س',
+            images: {
+                black: 'https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/c72df40c-3fda-48b1-827a-cb5d07af96ed.jpg',
+                gray: 'https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/c72df40c-3fda-48b1-827a-cb5d07af96ed.jpg',
+                gold: 'https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/c72df40c-3fda-48b1-827a-cb5d07af96ed.jpg'
+            }
+        },
+        3: {
+            title: 'يارا',
+            description: 'عباية خفيفة بتصميم أنيق',
+            details: 'عباية "يارا" خفيفة الوزن ومريحة للارتداء اليومي. تتميز بتصميمها البسيط والأنيق مع تفاصيل معدنية بسيطة. متوفرة باللون البيج والأسود والأزرق الداكن.',
+            price: '449 ر.س',
+            images: {
+                beige: 'https://kayanee.com/cdn/shop/files/OTW27-WORKDAY-COTTON-STRETCH-PIQUE-ABAYA-CORE-BLUE_1_bac30354-b609-4831-9731-cf258f43c27d.webp?v=1739924745&width=713',
+                black: 'https://kayanee.com/cdn/shop/files/OTW27-WORKDAY-COTTON-STRETCH-PIQUE-ABAYA-CORE-BLUE_1_bac30354-b609-4831-9731-cf258f43c27d.webp?v=1739924745&width=713',
+                navy: 'https://kayanee.com/cdn/shop/files/OTW27-WORKDAY-COTTON-STRETCH-PIQUE-ABAYA-CORE-BLUE_1_bac30354-b609-4831-9731-cf258f43c27d.webp?v=1739924745&width=713'
+            }
+        },
+        4: {
+            title: 'ملك',
+            description: 'عباية سوداء بتفاصيل ذهبية فاخرة',
+            details: 'عباية "ملك" الفاخرة بتصميم ملكي مع تطريز ذهبي كثيف. مصنوعة من خامة مخملية عالية الجودة مع تفاصيل لامعة. متوفرة باللون الأسود فقط مع خيارات مختلفة من التطريز.',
+            price: '699 ر.س',
+            images: {
+                black: 'https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/4fcceed0-0b3a-4acc-9587-505d94a91fcc.jpg',
+                black2: 'https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/4fcceed0-0b3a-4acc-9587-505d94a91fcc.jpg',
+                black3: 'https://media.zid.store/c2b141f1-dba7-4e05-8272-7a3133b39507/4fcceed0-0b3a-4acc-9587-505d94a91fcc.jpg'
+            }
+        }
+    };
+
+    viewDetailsBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product');
+            const product = products[productId];
+            
+            modalTitle.textContent = product.title;
+            modalDescription.textContent = product.description;
+            modalDetails.textContent = product.details;
+            modalPrice.textContent = product.price;
+            
+            // Set first image
+            const firstColor = Object.keys(product.images)[0];
+            modalImg.src = product.images[firstColor];
+            modalImg.alt = `عباية ${product.title}`;
+            
+            // Open modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Color options in modal
+    document.querySelectorAll('.color-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const color = this.getAttribute('data-color');
+            const productTitle = modalTitle.textContent;
+            const product = Object.values(products).find(p => p.title === productTitle);
+            
+            if (product && product.images[color]) {
+                modalImg.src = product.images[color];
+                
+                // Update active color
+                document.querySelectorAll('.color-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Contact form
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Here you would normally send the data to a server
+        console.log('Form submitted:', data);
+        
+        // Show success message
+        alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+        this.reset();
+    });
+
+    // Animate product cards on scroll
+    const productCards = document.querySelectorAll('.product-card');
+    
+    function animateOnScroll() {
+        productCards.forEach((card, index) => {
+            const cardPosition = card.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (cardPosition < screenPosition) {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 200);
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on page load
+    
+    // Add animation to sections when they come into view
+    const sections = document.querySelectorAll('section');
+    
+    function animateSections() {
+        sections.forEach(section => {
+            const sectionPosition = section.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (sectionPosition < screenPosition) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    }
+    
+    // Initialize sections with some styles
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    window.addEventListener('scroll', animateSections);
+    animateSections(); // Run once on page load
+});
+    </script>
+</body>
+</html>
